@@ -23,33 +23,19 @@ class LoginActivity : AppCompatActivity() {
         binding.buttonLogin.setOnClickListener{
             signIn()
         }
+
         binding.buttonSigninSignup.setOnClickListener{
-            signUp()
+            startActivity(Intent(this,SignUpActivity::class.java))
         }
     }
 
-    private fun signUp(){
-        auth?.createUserWithEmailAndPassword(binding.editTextId.text.toString(), binding.editTextPassword.text.toString())
-            ?.addOnCompleteListener{
-                task -> if(task.isSuccessful){
-                    startMainActivity(task.result?.user)
-                } else {
-                    if(task.exception?.message.isNullOrEmpty()) {
-                        Toast.makeText(this, task.exception?.message, Toast.LENGTH_SHORT).show()
-                    } else {
-                        signIn();
-                    }
-                }
-            }
-    }
-
     private fun signIn(){
-        auth?.signInWithEmailAndPassword(binding.editTextId.text.toString(), binding.editTextPassword.text.toString())
+        auth?.signInWithEmailAndPassword(binding.editTextId.text.toString().trim(), binding.editTextPassword.text.toString().trim())
             ?.addOnCompleteListener{
                 task -> if(task.isSuccessful){
                     startMainActivity(task.result?.user)
                 } else {
-                    Toast.makeText(this,task.exception?.message,Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, task.exception?.message, Toast.LENGTH_SHORT).show()
                 }
             }
     }

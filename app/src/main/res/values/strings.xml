@@ -11,6 +11,7 @@
     <string name="login">로그인</string>
     <string name="signin_hint">계정이 없으신가요?</string>
     <string name="signin_email">가입하기</string>
+    <string name="signup_hint">친구들의 사진과 동영상을 보려면 가입하세요.</string>
     <string name="signin_google">Google login</string>
     <string name="signin_facebook">Facebook login</string>
     <string name="signup_complete">Membership success</string>
@@ -54,6 +55,8 @@
     <string name="back">Back</string>
 
     <!-- etc -->
-    <item name="visible" type="id"/>
-    <item name="masked" type="id"/>
+    <item name="visible" type="id" />
+    <item name="masked" type="id" />
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
